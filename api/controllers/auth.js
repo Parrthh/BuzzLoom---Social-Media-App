@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 export const register = (req,res)=> {
     // CHECK USER IF EXISTS
-    const q = "SELECT FROM User WHERE username = ?"
+    const q = "SELECT * FROM User WHERE username = ?"
     db.query(q,[req.body.username], (err,data)=>{
         if(err) return res.status(500).json(err)
         if(data.length) return res.status(409).send("User already exists!")
@@ -15,6 +15,7 @@ export const register = (req,res)=> {
         const hashedPassword = bcrypt.hashSync(req.body.password, salt)
 
         const q = "INSERT INTO users (`username`,`email`,`password`,`name`) VALUES (?)"
+        
     const values = [
         req.body.username,
         req.body.email,
