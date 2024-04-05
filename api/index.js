@@ -11,6 +11,7 @@ import postRoutes from "./routes/posts.js"
 app.use(Express.json()); // parse incoming requests with JSON payloads
 
 // To check if we can get this message on our localhost
+
 // app.get('/', (req, res) => {
 //     res.send('Hello, World! This is a simple example of a route.');
 // });
